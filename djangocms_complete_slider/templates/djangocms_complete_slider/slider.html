@@ -46,3 +46,10 @@
 {% addtoblock "css" %}
     <link rel="stylesheet" type="text/css" href="{{ app_settings.CSS_URL }}">
 {% endaddtoblock %}
+
+{# https://github.com/divio/django-cms/issues/5085 #}
+<div style="display: none;">
+    {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% endfor %}
+</div>
