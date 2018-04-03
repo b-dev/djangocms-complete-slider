@@ -17,7 +17,7 @@
                 slides: [
                     {% for plugin in instance.child_plugin_instances %}
                         {% if plugin.image %}
-                        {src: "{{ plugin.image.url }}", overlayText: "{% if plugin.caption %}<div class='vegas-caption-inner'>{{ plugin.caption|safe }}</div>{% endif %}"},
+                        {src: "{{ plugin.image.url }}", overlayText: `{% if plugin.caption %}<div class='vegas-caption-inner'>{{ plugin.caption|safe }}</div>{% endif %}`},
                         {% endif %}
                         {% if plugin.video %}
                         {
@@ -28,7 +28,7 @@
                             ],
                             loop: {% if plugin.loop %}true{% else %}false{% endif %},
                             mute: {% if plugin.mute %}true{% else %}false{% endif %},
-                            overlayText: "{% if plugin.caption %}<div class='vegas-caption-inner'>{{ plugin.caption|safe }}</div>{% endif %}"
+                            overlayText: `{% if plugin.caption %}<div class='vegas-caption-inner'>{{ plugin.caption|safe }}</div>{% endif %}`
                           }
                         },
                         {% endif %}
