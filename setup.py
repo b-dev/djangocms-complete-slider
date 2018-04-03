@@ -17,7 +17,7 @@ setup(name='djangocms-complete-slider',
       packages=find_packages(),
       include_package_data=True,
       install_requires=[
-          'django',
+          'django<2.0',
           'django-cms',
           'djangocms-picture',
           'djangocms-video',
