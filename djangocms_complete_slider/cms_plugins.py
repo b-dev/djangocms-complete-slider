@@ -52,7 +52,9 @@ class CompleteImageSlidePlugin(CMSPluginBase):
     allow_children = False
     parent_classes = ["CompleteSliderPlugin"]
     form = ImageSlideForm
-    render_plugin = False
+    # if i don't have a render_template, the edit popup in frontend doesn't work.
+    # so i put a blank template
+    render_template = "djangocms_complete_slider/slide.html"
 
 
 plugin_pool.register_plugin(CompleteImageSlidePlugin)
@@ -67,7 +69,8 @@ class CompleteVideoSlidePlugin(CMSPluginBase):
     allow_children = False
     parent_classes = ["CompleteSliderPlugin"]
     form = VideoSlideForm
-    render_plugin = False
-
+    # if i don't have a render_template, the edit popup in frontend doesn't work.
+    # so i put a blank template
+    render_template = "djangocms_complete_slider/slide.html"
 
 plugin_pool.register_plugin(CompleteVideoSlidePlugin)
