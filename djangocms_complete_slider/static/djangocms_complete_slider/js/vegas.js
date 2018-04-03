@@ -180,6 +180,9 @@
             // Container
             this.$elmt.addClass('vegas-container');
 
+            this.$divOverlayText = $('<div class="vegas-overlay-text"></div>');
+            this.$elmt.prepend(this.$divOverlayText);
+
             if (!isBody) {
                 this.$elmt.append($wrapper);
             }
@@ -449,11 +452,16 @@
             } else {
                 img = new Image();
 
-                //$inner = $('<div class="vegas-slide-inner"></div>')
-                $inner = $('<div class="vegas-slide-inner">' + overlayText + '</div>')
+                $inner = $('<div class="vegas-slide-inner"></div>')
                     .css('background-image',    'url("' + src + '")')
                     .css('background-color',    color)
                     .css('background-position', align + ' ' + valign);
+
+                if (overlayText != '') {
+                    self.$divOverlayText.html(overlayText);
+                } else {
+                    self.$divOverlayText.html("");
+                }
 
                 if (cover === 'repeat') {
                     $inner.css('background-repeat', 'repeat');

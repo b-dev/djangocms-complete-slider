@@ -17,7 +17,7 @@
                 slides: [
                     {% for plugin in instance.child_plugin_instances %}
                         {% if plugin.image %}
-                        {src: "{{ plugin.image.url }}", overlayText: `{% if plugin.caption %}<div class='vegas-caption-inner'>{{ plugin.caption|safe }}</div>{% endif %}`},
+                        {src: "{{ plugin.image.url }}", overlayText: `{% if plugin.caption %}{{ plugin.caption|safe }}{% endif %}`},
                         {% endif %}
                         {% if plugin.video %}
                         {
@@ -28,7 +28,7 @@
                             ],
                             loop: {% if plugin.loop %}true{% else %}false{% endif %},
                             mute: {% if plugin.mute %}true{% else %}false{% endif %},
-                            overlayText: `{% if plugin.caption %}<div class='vegas-caption-inner'>{{ plugin.caption|safe }}</div>{% endif %}`
+                            overlayText: `{% if plugin.caption %}{{ plugin.caption|safe }}{% endif %}`
                           }
                         },
                         {% endif %}
@@ -45,6 +45,14 @@
 
 {% addtoblock "css" %}
     <link rel="stylesheet" type="text/css" href="{{ app_settings.CSS_URL }}">
+    <style type="text/css">
+        .vegas-overlay-text {
+            position: absolute;
+            top: 100px;
+            left: 30px;
+            font-size: 20px;
+        }
+    </style>
 {% endaddtoblock %}
 
 {# https://github.com/divio/django-cms/issues/5085 #}
