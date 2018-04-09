@@ -58,6 +58,8 @@ class CompleteImageSlide(CMSPlugin):
     link = models.URLField(verbose_name='Image link', null=True, blank=True)
     slideTransition = models.CharField(max_length=30, choices=VEGAS_TRANSITION_CHOICES, default='F')
     caption = HTMLField(blank=True, null=True)
+    # you have to customize the "djangocms_complete_slider/sldier.html" to manage this flag
+    hidden_on_mobile = models.BooleanField(default=False)
 
     def get_url(self):
         return self.image.url if self.image is not None else self.link
@@ -74,6 +76,8 @@ class CompleteVideoSlide(CMSPlugin):
     loop = models.BooleanField(verbose_name=_("Loop the video"), default=True, blank=False, null=False)
     mute = models.BooleanField(verbose_name=_("Mute the video"), default=True, blank=False, null=False)
     caption = HTMLField(blank=True, null=True)
+    # you have to customize the "djangocms_complete_slider/sldier.html" to manage this flag
+    hidden_on_mobile = models.BooleanField(default=False)
 
     def get_url(self):
         return self.video.url if self.video is not None else self.link

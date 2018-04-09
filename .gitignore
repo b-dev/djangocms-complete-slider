@@ -12,4 +12,4 @@ syntax: glob
 .idea
 dist
 build
-django_newsletter_form.egg-info
+djangocms_complete_slider.egg-info
