@@ -8,7 +8,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(name='djangocms-complete-slider',
-      version='0.1.8',
+      version='0.1.9',
       description='A complete slider plugin for Django CMS',
       url='http://github.com/b-dev/djangocms-complete-slider',
       author='Marco Minutoli',

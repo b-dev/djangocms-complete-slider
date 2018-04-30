@@ -22,14 +22,14 @@
                         {% if plugin.video %}
                         {
                             src: "{{ plugin.poster.url }}",
+                            overlayText: `{% if plugin.caption %}{{ plugin.caption|safe }}{% endif %}`,
                             video: {
-                            src: [
-                                '{{ plugin.video.url }}'
-                            ],
-                            loop: {% if plugin.loop %}true{% else %}false{% endif %},
-                            mute: {% if plugin.mute %}true{% else %}false{% endif %},
-                            overlayText: `{% if plugin.caption %}{{ plugin.caption|safe }}{% endif %}`
-                          }
+                                src: [
+                                    '{{ plugin.video.url }}'
+                                ],
+                                loop: {% if plugin.loop %}true{% else %}false{% endif %},
+                                mute: {% if plugin.mute %}true{% else %}false{% endif %}
+                            }
                         },
                         {% endif %}
                     {% endfor %}
