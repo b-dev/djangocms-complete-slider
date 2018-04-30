@@ -457,12 +457,6 @@
                     .css('background-color',    color)
                     .css('background-position', align + ' ' + valign);
 
-                if (overlayText != '') {
-                    self.$divOverlayText.html(overlayText);
-                } else {
-                    self.$divOverlayText.html("");
-                }
-
                 if (cover === 'repeat') {
                     $inner.css('background-repeat', 'repeat');
                 } else {
@@ -476,6 +470,12 @@
                 }
 
                 $slide.append($inner);
+            }
+
+            if (overlayText != '') {
+                self.$divOverlayText.html(overlayText);
+            } else {
+                self.$divOverlayText.html("");
             }
 
             if (!this.support.transition) {
